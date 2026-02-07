@@ -1,0 +1,10 @@
+services:
+  todo-server:
+    build: .
+    container_name: todo-server-container
+    ports:
+      - "5001:5001"
+    env_file:
+      - .env
+    volumes:
+      - ./internal/storage:/app/internal/storage

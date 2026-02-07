@@ -1,0 +1,29 @@
+# Go build artifacts
+/bin/
+/pkg/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Configs / secrets
+.env
+config/*.local.yaml
+*.key
+*.pem
+
+# IDE / editors
+.vscode/
+.idea/
+*.swp
+*.tmp
+*~
+
+# OS
+.DS_Store
+
+# DataBase
+internal/storage/sqlite/storage.db
+

@@ -1,0 +1,72 @@
+#tasks-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#tasks-page.form-create button {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+#tasks-page.form-create button::before {
+    content: "⊕ ";
+}
+
+#tasks-page.form-create button:hover {
+    background-color: #218838;
+}
+
+#tasks-page.form-sort button {
+    background-color: #6f42c1;
+    color: white;
+}
+
+#tasks-page.form-sort button::before {
+    content: "🪄 ";
+}
+
+#tasks-page.form-sort button:hover {
+    background-color: #59359a;
+}
+
+.tasks-table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.tasks-table th,.tasks-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.tasks-table th {
+    background-color: #f1f3f5;
+    color: #495057;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.completed td {
+    text-decoration: line-through;
+    color: #adb5bd;
+    opacity: 0.7;
+}
+
+.tasks-table td:first-child {
+    width: 40%;
+    max-width: 250px;
+    word-wrap: break-word;
+    font-weight: 500;
+}
+
+.status.done { color: #28a745; font-weight: bold; }
+.status.pending { color: #dc3545; font-weight: bold; }
+
+.btn-edit { color: #007bff; background: none; font-size: 18px; }
+.btn-delete { color: #dc3545; background: none; font-size: 18px; }

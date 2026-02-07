@@ -1,0 +1,13 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ block "title" . }}Default Title{{ end }}</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/tasks.css">
+    <link rel="stylesheet" href="/static/css/edit.css">
+  </head>
+  <body>    
+    {{ block "content" . }}Page not found or content not specified{{ end }}
+  </body>
+</html>

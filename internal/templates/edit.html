@@ -1,0 +1,27 @@
+{{ define "title" }}Edit Task{{ end }}
+
+{{ define "content" }}
+<div id="edit-page">
+  <h2>Edit Task</h2>
+
+  <form action="/tasks/{{.ID}}/edit" method="post">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="{{.Name}}" required>
+    </div>
+
+    <div>
+      <label for="completed">Completed:</label>
+      <select name="completed" id="completed">
+        <option value="false" {{if not .Completed}}selected{{end}}>No</option>
+        <option value="true" {{if .Completed}}selected{{end}}>Yes</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="submit">Save</button>
+      <a href="/tasks"><button type="button">Cancel</button></a>
+    </div>
+  </form>
+</div>
+{{ end }}

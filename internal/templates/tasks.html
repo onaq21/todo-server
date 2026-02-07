@@ -1,0 +1,62 @@
+{{ define "title" }}Task Manager{{ end }}
+
+{{ define "content" }}
+<div id="tasks-page">
+  <h1>Task Manager</h1>
+
+  <div class="actions" style="text-align: center; margin-bottom: 20px;">
+    <form action="/tasks" method="post" class="form-create" style="display: inline-block; margin-right: 10px;">
+      <input name="name" placeholder="New task" required>
+      <button type="submit" title="Create new task">Create</button>
+    </form>
+
+    <form action="/tasks/sort" method="get" class="form-sort" style="display: inline-block;">
+      <button type="submit" title="Sort tasks using AI">Sort</button>
+    </form>
+  </div>
+
+  <table class="tasks-table" border="1" width="80%" style="margin: 0 auto; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Completed</th>
+        <th>Created at</th>
+        <th>Completed at</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range . }}
+        {{ template "row" . }}
+      {{ end }}
+    </tbody>
+  </table>
+</div>
+{{ end }}
+
+{{ define "row" }}
+<tr class="{{ if .Completed }}completed{{ end }}">
+  <td>{{ .Name }}</td>
+
+  <td>
+    <span class="status {{ if .Completed }}done{{ else }}pending{{ end }}">
+      {{ if .Completed }}✓{{ else }}✗{{ end }}
+    </span>
+  </td>
+
+  <td>{{ formatTime .CreatedAt }}</td>
+  <td>{{ if .Completed }}{{ formatTime .CompletedAt }}{{ else }}-{{ end }}</td>
+
+  <td class="actions-cell">
+
+    <form action="/tasks/{{ .ID }}/edit" method="get" style="display:inline-block;">
+      <button type="submit" class="btn btn-edit" title="Edit task">✎</button>
+    </form>
+
+    <form action="/tasks/{{ .ID }}/delete" method="post" style="display:inline-block;">
+      <button type="submit" class="btn btn-delete" title="Delete task">🗑</button>
+    </form>
+
+  </td>
+</tr>
+{{ end }}
